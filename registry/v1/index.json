@@ -1,7 +1,7 @@
 {
-  "_comment": "Official examples — artifacts on examples-v0.1.0; new plugins ship with examples-v0.2.0",
+  "_comment": "Official examples with GitHub Release artifacts (examples-v0.1.0 + examples-v0.2.0)",
   "schema": "orion.registry.index/1",
-  "serial": 5,
+  "serial": 6,
   "signatures": [],
   "plugins": [
     {
@@ -12,9 +12,16 @@
       "author": "Orion Team",
       "official": true,
       "license": "MIT",
-      "capabilities": ["tools", "ui_contributions"],
+      "capabilities": [
+        "tools",
+        "ui_contributions"
+      ],
       "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
-      "tags": ["tools", "ui", "productivity"],
+      "tags": [
+        "tools",
+        "ui",
+        "productivity"
+      ],
       "staging": false,
       "downloadUrl": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.1.0/calculator-0.1.0-windows-x64.orionplugin",
       "sha256": "dc23a55a95189ca6989c66f25850e5bfc5e08e6ff924d39550902750462ebe5c"
@@ -27,9 +34,14 @@
       "author": "Orion Team",
       "official": true,
       "license": "MIT",
-      "capabilities": ["tools"],
+      "capabilities": [
+        "tools"
+      ],
       "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
-      "tags": ["tools", "productivity"],
+      "tags": [
+        "tools",
+        "productivity"
+      ],
       "staging": false,
       "downloadUrl": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.1.0/unit-converter-0.1.0-windows-x64.orionplugin",
       "sha256": "4e2958902ac8fd806a987884e185ecdceaf8351acf7699e1cf8f1e77dd969eef"
@@ -42,9 +54,14 @@
       "author": "Orion Team",
       "official": true,
       "license": "MIT",
-      "capabilities": ["tools"],
+      "capabilities": [
+        "tools"
+      ],
       "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
-      "tags": ["tools", "notes"],
+      "tags": [
+        "tools",
+        "notes"
+      ],
       "staging": false,
       "downloadUrl": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.1.0/quick-notes-0.1.0-windows-x64.orionplugin",
       "sha256": "5a06fa58251d694bd384dc639a2889a64073d394d29f68088f9e9ca121166b09"
@@ -57,12 +74,17 @@
       "author": "Orion Team",
       "official": true,
       "license": "MIT",
-      "capabilities": ["tools"],
+      "capabilities": [
+        "tools"
+      ],
       "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
-      "tags": ["tools", "security"],
-      "staging": true,
-      "stagingReason": "Install from catalog examples; release asset on examples-v0.2.0",
-      "downloadUrl": ""
+      "tags": [
+        "tools",
+        "security"
+      ],
+      "staging": false,
+      "downloadUrl": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.2.0/password-generator-0.1.0-windows-x64.orionplugin",
+      "sha256": "77dc50f6b97e1796857a7aca7aee4ced23d2d971feff0bd930326def00561a88"
     },
     {
       "id": "world-clock",
@@ -72,12 +94,17 @@
       "author": "Orion Team",
       "official": true,
       "license": "MIT",
-      "capabilities": ["tools"],
+      "capabilities": [
+        "tools"
+      ],
       "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
-      "tags": ["tools", "time"],
-      "staging": true,
-      "stagingReason": "Install from catalog examples; release asset on examples-v0.2.0",
-      "downloadUrl": ""
+      "tags": [
+        "tools",
+        "time"
+      ],
+      "staging": false,
+      "downloadUrl": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.2.0/world-clock-0.1.0-windows-x64.orionplugin",
+      "sha256": "7f2032bf88fd9ba954260e67bcd3b7c50d0c0476f667e2d319d1a8ed08a4e1bc"
     },
     {
       "id": "text-tools",
@@ -87,12 +114,17 @@
       "author": "Orion Team",
       "official": true,
       "license": "MIT",
-      "capabilities": ["tools"],
+      "capabilities": [
+        "tools"
+      ],
       "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
-      "tags": ["tools", "text"],
-      "staging": true,
-      "stagingReason": "Install from catalog examples; release asset on examples-v0.2.0",
-      "downloadUrl": ""
+      "tags": [
+        "tools",
+        "text"
+      ],
+      "staging": false,
+      "downloadUrl": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.2.0/text-tools-0.1.0-windows-x64.orionplugin",
+      "sha256": "ac423744efdc1aff01914f47bef4cbb087757361040e3e1e3aac086d55bb8158"
     },
     {
       "id": "color-tools",
@@ -102,12 +134,17 @@
       "author": "Orion Team",
       "official": true,
       "license": "MIT",
-      "capabilities": ["tools"],
+      "capabilities": [
+        "tools"
+      ],
       "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
-      "tags": ["tools", "design"],
-      "staging": true,
-      "stagingReason": "Install from catalog examples; release asset on examples-v0.2.0",
-      "downloadUrl": ""
+      "tags": [
+        "tools",
+        "design"
+      ],
+      "staging": false,
+      "downloadUrl": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.2.0/color-tools-0.1.0-windows-x64.orionplugin",
+      "sha256": "27235408595f7a59648b6580379be6716ab6cb51d463a5e63892c8c74589922c"
     },
     {
       "id": "random-picker",
@@ -117,12 +154,17 @@
       "author": "Orion Team",
       "official": true,
       "license": "MIT",
-      "capabilities": ["tools"],
+      "capabilities": [
+        "tools"
+      ],
       "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
-      "tags": ["tools", "fun"],
-      "staging": true,
-      "stagingReason": "Install from catalog examples; release asset on examples-v0.2.0",
-      "downloadUrl": ""
+      "tags": [
+        "tools",
+        "fun"
+      ],
+      "staging": false,
+      "downloadUrl": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.2.0/random-picker-0.1.0-windows-x64.orionplugin",
+      "sha256": "9f5501a4249af7800c80fc4a3a58ab833f3a7a5551431e92553c9820d61cee29"
     },
     {
       "id": "dice-roller",
@@ -132,9 +174,13 @@
       "author": "Orion Team",
       "official": true,
       "license": "MIT",
-      "capabilities": ["tools"],
+      "capabilities": [
+        "tools"
+      ],
       "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
-      "tags": ["tools"],
+      "tags": [
+        "tools"
+      ],
       "staging": false,
       "downloadUrl": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.1.0/dice-roller-0.1.0-windows-x64.orionplugin",
       "sha256": "44187e9c1d417233cb6dd1a2b423811b1acf70ae76cdab8d5b136245e8221c65"
@@ -147,9 +193,13 @@
       "author": "Orion Team",
       "official": true,
       "license": "MIT",
-      "capabilities": ["tools"],
+      "capabilities": [
+        "tools"
+      ],
       "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
-      "tags": ["tools"],
+      "tags": [
+        "tools"
+      ],
       "staging": false,
       "downloadUrl": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.1.0/hello-orion-0.1.0-windows-x64.orionplugin",
       "sha256": "35a6e44c4f19fa1db96b9758a44324de7f4e82a92cd1b3f0dca339751e0f41cc"
