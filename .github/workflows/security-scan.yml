@@ -1,0 +1,45 @@
+name: Plugin security scan
+
+on:
+  pull_request:
+    paths:
+      - "plugins/**"
+      - "registry/**"
+      - "tools/**"
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      artifact_url:
+        description: "Optional HTTPS URL to .orionplugin for scan"
+        required: false
+        default: ""
+
+jobs:
+  validate-index:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate listings
+        run: python tools/validate.py
+      - name: Rebuild index (dry check)
+        run: python tools/build-index.py
+
+  scan-artifact:
+    if: github.event_name == 'workflow_dispatch' && inputs.artifact_url != ''
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download artifact
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path .scan | Out-Null
+          Invoke-WebRequest -Uri "${{ inputs.artifact_url }}" -OutFile .scan/plugin.orionplugin -UseBasicParsing
+      - name: Security scan
+        run: python tools/security-scan.py .scan/plugin.orionplugin
