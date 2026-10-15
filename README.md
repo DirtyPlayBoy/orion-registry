@@ -20,11 +20,22 @@ policy/                               reserved ids, rules
 schema/                               JSON Schema
 ```
 
-## Добавить плагин
+## Добавить плагин (рекомендуемый путь)
 
-1. Опубликуйте `.orionplugin` в своём Release.
-2. Добавьте `plugins/<id>/plugin.json` + `versions/<semver>.json`.
-3. Обновите `registry/v1/index.json` (или дождитесь CI `tools/build-index`).
-4. Откройте PR. Первая заявка — ручная модерация.
+Из репозитория плагина (см. [OrionPlugins CLI](https://github.com/DirtyPlayBoy/OrionPlugins)):
 
-См. [POLICY.md](POLICY.md) и [Astra registry design](https://github.com/mihailinl/astra-registry) (вдохновение: digest-pinning без хостинга байтов).
+```bash
+python cli/orion_plugin.py pack .
+python cli/orion_plugin.py submit . --repo Owner/Name
+```
+
+Скопируйте `submit/plugins/<id>/` сюда, затем:
+
+```bash
+python tools/build-index.py
+python tools/validate.py
+```
+
+Откройте PR. Первая заявка — ручная модерация.
+
+См. [POLICY.md](POLICY.md). Дизайн pin-by-digest вдохновлён [astra-registry](https://github.com/mihailinl/astra-registry).
