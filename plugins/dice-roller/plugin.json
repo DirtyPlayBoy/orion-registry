@@ -1,0 +1,11 @@
+{
+  "id": "dice-roller",
+  "name": "Dice Roller",
+  "summary": "Roll dice and flip coins — tools for the Orion assistant.",
+  "author": "Orion Team",
+  "official": true,
+  "license": "MIT",
+  "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
+  "homepage": "https://github.com/DirtyPlayBoy/OrionPlugins/tree/main/examples/dice-roller",
+  "capabilities": ["tools"]
+}

@@ -1,0 +1,12 @@
+{
+  "version": "0.1.0",
+  "staging": true,
+  "staging_reason": "Ship release artifact from OrionPlugins CI, then replace with sha256 + download url.",
+  "published_at": "2026-10-15T00:00:00Z",
+  "release": {
+    "kind": "github_release",
+    "repository": "DirtyPlayBoy/OrionPlugins",
+    "tag": "dice-roller-v0.1.0"
+  },
+  "artifacts": []
+}

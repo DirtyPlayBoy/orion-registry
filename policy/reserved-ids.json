@@ -1,0 +1,9 @@
+{
+  "reserved": [
+    "orion-stt",
+    "orion-tts",
+    "orion-core",
+    "orion-agent",
+    "orion-voice"
+  ]
+}

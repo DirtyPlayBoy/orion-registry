@@ -1,0 +1,38 @@
+{
+  "_comment": "GENERATED / hand-seeded MVP index — do not invent digests",
+  "schema": "orion.registry.index/1",
+  "serial": 1,
+  "signatures": [],
+  "plugins": [
+    {
+      "id": "dice-roller",
+      "name": "Dice Roller",
+      "version": "0.1.0",
+      "summary": "Roll dice and flip coins — tools for the Orion assistant.",
+      "author": "Orion Team",
+      "official": true,
+      "license": "MIT",
+      "capabilities": ["tools"],
+      "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
+      "downloadUrl": "",
+      "staging": true,
+      "stagingReason": "Example lives in OrionPlugins/examples/dice-roller — load from folder until a signed release exists.",
+      "tags": ["tools", "fun"]
+    },
+    {
+      "id": "hello-orion",
+      "name": "Hello Orion",
+      "version": "0.1.0",
+      "summary": "Minimal starter tool plugin.",
+      "author": "Orion Team",
+      "official": true,
+      "license": "MIT",
+      "capabilities": ["tools"],
+      "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
+      "downloadUrl": "",
+      "staging": true,
+      "stagingReason": "Scaffold with orion-plugin new",
+      "tags": ["tools", "starter"]
+    }
+  ]
+}
