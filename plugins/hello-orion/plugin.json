@@ -1,0 +1,11 @@
+{
+  "id": "hello-orion",
+  "name": "Hello Orion",
+  "summary": "Minimal first plugin — one tool that greets you. Start here.",
+  "author": "Orion Team",
+  "official": true,
+  "license": "MIT",
+  "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
+  "homepage": "https://github.com/DirtyPlayBoy/OrionPlugins/tree/main/examples/hello-orion",
+  "capabilities": ["tools"]
+}
