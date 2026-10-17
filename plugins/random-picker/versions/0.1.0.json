@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "published_at": "2026-10-15T00:00:00Z",
+  "release": {
+    "kind": "github_release",
+    "repository": "DirtyPlayBoy/OrionPlugins",
+    "tag": "examples-v0.2.0"
+  },
+  "staging": false,
+  "download_url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.2.0/random-picker-0.1.0-windows-x64.orionplugin",
+  "sha256": "9f5501a4249af7800c80fc4a3a58ab833f3a7a5551431e92553c9820d61cee29",
+  "artifacts": [
+    {
+      "platform": "windows-x64",
+      "url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.2.0/random-picker-0.1.0-windows-x64.orionplugin",
+      "sha256": "9f5501a4249af7800c80fc4a3a58ab833f3a7a5551431e92553c9820d61cee29"
+    }
+  ]
+}

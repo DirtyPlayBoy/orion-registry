@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "published_at": "2026-10-15T00:00:00Z",
+  "release": {
+    "kind": "github_release",
+    "repository": "DirtyPlayBoy/OrionPlugins",
+    "tag": "examples-v0.2.0"
+  },
+  "staging": false,
+  "download_url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.2.0/world-clock-0.1.0-windows-x64.orionplugin",
+  "sha256": "7f2032bf88fd9ba954260e67bcd3b7c50d0c0476f667e2d319d1a8ed08a4e1bc",
+  "artifacts": [
+    {
+      "platform": "windows-x64",
+      "url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.2.0/world-clock-0.1.0-windows-x64.orionplugin",
+      "sha256": "7f2032bf88fd9ba954260e67bcd3b7c50d0c0476f667e2d319d1a8ed08a4e1bc"
+    }
+  ]
+}

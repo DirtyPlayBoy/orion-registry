@@ -1,4 +1,4 @@
-name: Plugin security scan
+name: Registry CI
 
 on:
   pull_request:
@@ -6,12 +6,18 @@ on:
       - "plugins/**"
       - "registry/**"
       - "tools/**"
+      - "policy/**"
+      - "schema/**"
   push:
     branches: [main]
   workflow_dispatch:
     inputs:
       artifact_url:
         description: "Optional HTTPS URL to .orionplugin for scan"
+        required: false
+        default: ""
+      artifact_sha256:
+        description: "Optional expected SHA-256"
         required: false
         default: ""
 
@@ -25,8 +31,15 @@ jobs:
           python-version: "3.12"
       - name: Validate listings
         run: python tools/validate.py
-      - name: Rebuild index (dry check)
-        run: python tools/build-index.py
+      - name: Rebuild index (must be committed)
+        shell: pwsh
+        run: |
+          python tools/build-index.py
+          git diff --exit-code -- registry/v1/index.json
+          if ($LASTEXITCODE -ne 0) {
+            Write-Error "registry/v1/index.json is stale — run tools/build-index.py and commit"
+            exit 1
+          }
 
   scan-artifact:
     if: github.event_name == 'workflow_dispatch' && inputs.artifact_url != ''
@@ -42,4 +55,4 @@ jobs:
           New-Item -ItemType Directory -Force -Path .scan | Out-Null
           Invoke-WebRequest -Uri "${{ inputs.artifact_url }}" -OutFile .scan/plugin.orionplugin -UseBasicParsing
       - name: Security scan
-        run: python tools/security-scan.py .scan/plugin.orionplugin
+        run: python tools/security-scan.py .scan/plugin.orionplugin --sha256 "${{ inputs.artifact_sha256 }}"

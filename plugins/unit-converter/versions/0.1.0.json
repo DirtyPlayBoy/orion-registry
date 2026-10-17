@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "published_at": "2026-10-15T00:00:00Z",
+  "release": {
+    "kind": "github_release",
+    "repository": "DirtyPlayBoy/OrionPlugins",
+    "tag": "examples-v0.1.0"
+  },
+  "staging": false,
+  "download_url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.1.0/unit-converter-0.1.0-windows-x64.orionplugin",
+  "sha256": "4e2958902ac8fd806a987884e185ecdceaf8351acf7699e1cf8f1e77dd969eef",
+  "artifacts": [
+    {
+      "platform": "windows-x64",
+      "url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.1.0/unit-converter-0.1.0-windows-x64.orionplugin",
+      "sha256": "4e2958902ac8fd806a987884e185ecdceaf8351acf7699e1cf8f1e77dd969eef"
+    }
+  ]
+}

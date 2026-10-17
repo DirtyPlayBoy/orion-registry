@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/DirtyPlayBoy/orion-registry/main/schema/index.schema.json",
+  "title": "Orion registry catalogue index",
+  "type": "object",
+  "required": ["schema", "serial", "plugins"],
+  "properties": {
+    "_comment": { "type": "string" },
+    "schema": { "const": "orion.registry.index/1" },
+    "serial": { "type": "integer", "minimum": 1 },
+    "signatures": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "plugins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "version", "license"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "version": { "type": "string" },
+          "summary": { "type": "string" },
+          "author": { "type": "string" },
+          "official": { "type": "boolean" },
+          "license": { "type": "string" },
+          "capabilities": { "type": "array", "items": { "type": "string" } },
+          "repository": { "type": "string" },
+          "homepage": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "staging": { "type": "boolean" },
+          "stagingReason": { "type": "string" },
+          "downloadUrl": { "type": "string" },
+          "sha256": { "type": "string" },
+          "size": { "type": "integer" }
+        }
+      }
+    }
+  }
+}

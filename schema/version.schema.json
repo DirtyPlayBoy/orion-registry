@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/DirtyPlayBoy/orion-registry/main/schema/version.schema.json",
+  "title": "Orion registry version pin",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["version"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?$"
+    },
+    "staging": { "type": "boolean" },
+    "staging_reason": { "type": "string" },
+    "stagingReason": { "type": "string" },
+    "published_at": { "type": "string" },
+    "download_url": { "type": "string", "format": "uri" },
+    "downloadUrl": { "type": "string", "format": "uri" },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "size": { "type": "integer", "minimum": 0 },
+    "release": {
+      "type": "object",
+      "properties": {
+        "kind": { "type": "string" },
+        "repository": { "type": "string" },
+        "tag": { "type": "string" }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "platform": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-fA-F0-9]{64}$"
+          },
+          "size": { "type": "integer", "minimum": 0 }
+        }
+      }
+    }
+  }
+}

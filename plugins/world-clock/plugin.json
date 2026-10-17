@@ -1,0 +1,17 @@
+{
+  "id": "world-clock",
+  "name": "Мировое время",
+  "summary": "Время в часовых поясах и разница между городами.",
+  "author": "Orion Team",
+  "official": true,
+  "license": "MIT",
+  "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
+  "homepage": "https://github.com/DirtyPlayBoy/OrionPlugins/tree/main/examples/world-clock",
+  "capabilities": [
+    "tools"
+  ],
+  "tags": [
+    "tools",
+    "time"
+  ]
+}

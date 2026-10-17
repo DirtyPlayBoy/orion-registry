@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "published_at": "2026-10-15T00:00:00Z",
+  "release": {
+    "kind": "github_release",
+    "repository": "DirtyPlayBoy/OrionPlugins",
+    "tag": "examples-v0.1.0"
+  },
+  "staging": false,
+  "download_url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.1.0/calculator-0.1.0-windows-x64.orionplugin",
+  "sha256": "dc23a55a95189ca6989c66f25850e5bfc5e08e6ff924d39550902750462ebe5c",
+  "artifacts": [
+    {
+      "platform": "windows-x64",
+      "url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.1.0/calculator-0.1.0-windows-x64.orionplugin",
+      "sha256": "dc23a55a95189ca6989c66f25850e5bfc5e08e6ff924d39550902750462ebe5c"
+    }
+  ]
+}

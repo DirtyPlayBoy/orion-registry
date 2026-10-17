@@ -1,0 +1,10 @@
+.scan/
+__pycache__/
+*.py[cod]
+.Python
+.venv/
+venv/
+.env
+*.orionplugin
+.DS_Store
+Thumbs.db

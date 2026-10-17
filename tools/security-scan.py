@@ -4,6 +4,7 @@
 Layers: sha256 (optional), zip safety, forbidden binaries, Python AST heuristics.
 On Windows, also runs Windows Defender MpCmdRun when available.
 Exit 0 = clean, 2 = blocked.
+Aligned with Orion app security_scan.py.
 """
 from __future__ import annotations
 
@@ -11,7 +12,6 @@ import argparse
 import ast
 import hashlib
 import os
-import re
 import shutil
 import subprocess
 import sys
@@ -21,14 +21,18 @@ from pathlib import Path
 from typing import List, Tuple
 
 FORBIDDEN_EXT = {
-    ".exe", ".dll", ".sys", ".scr", ".com", ".bat", ".cmd", ".ps1", ".vbs",
-    ".js", ".hta", ".lnk", ".msi",
+    ".exe", ".dll", ".sys", ".scr", ".com", ".pif", ".msi", ".bat", ".cmd",
+    ".ps1", ".vbs", ".vbe", ".js", ".jse", ".wsf", ".wsh", ".hta", ".cpl",
+    ".msc", ".reg", ".lnk", ".iso", ".img", ".apk", ".jar",
 }
 DANGEROUS = {"eval", "exec", "compile", "__import__"}
 RISKY_ATTR = {
     ("os", "system"),
+    ("os", "popen"),
     ("ctypes", "windll"),
+    ("ctypes", "CDLL"),
     ("pickle", "loads"),
+    ("pickle", "load"),
     ("marshal", "loads"),
 }
 
@@ -95,7 +99,6 @@ def scan_dir(root: Path) -> int:
     blockers: List[str] = []
     warnings: List[str] = []
     if not (root / "plugin.toml").is_file():
-        # nested
         kids = [p for p in root.iterdir() if p.is_dir()]
         if len(kids) == 1 and (kids[0] / "plugin.toml").is_file():
             root = kids[0]
@@ -147,7 +150,7 @@ def scan_archive(path: Path, expected: str = "") -> int:
 
 
 def main() -> int:
-    p = argparse.ArgumentParser()
+    p = argparse.ArgumentParser(description="Orion registry security scan")
     p.add_argument("path")
     p.add_argument("--sha256", default="")
     args = p.parse_args()

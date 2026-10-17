@@ -7,5 +7,10 @@
   "license": "MIT",
   "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
   "homepage": "https://github.com/DirtyPlayBoy/OrionPlugins/tree/main/examples/hello-orion",
-  "capabilities": ["tools"]
+  "capabilities": [
+    "tools"
+  ],
+  "tags": [
+    "tools"
+  ]
 }

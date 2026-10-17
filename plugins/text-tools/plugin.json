@@ -1,0 +1,17 @@
+{
+  "id": "text-tools",
+  "name": "Текст",
+  "summary": "Регистр, slug и подсчёт символов/слов.",
+  "author": "Orion Team",
+  "official": true,
+  "license": "MIT",
+  "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
+  "homepage": "https://github.com/DirtyPlayBoy/OrionPlugins/tree/main/examples/text-tools",
+  "capabilities": [
+    "tools"
+  ],
+  "tags": [
+    "tools",
+    "text"
+  ]
+}

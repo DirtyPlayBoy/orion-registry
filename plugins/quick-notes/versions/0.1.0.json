@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "published_at": "2026-10-15T00:00:00Z",
+  "release": {
+    "kind": "github_release",
+    "repository": "DirtyPlayBoy/OrionPlugins",
+    "tag": "examples-v0.1.0"
+  },
+  "staging": false,
+  "download_url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.1.0/quick-notes-0.1.0-windows-x64.orionplugin",
+  "sha256": "5a06fa58251d694bd384dc639a2889a64073d394d29f68088f9e9ca121166b09",
+  "artifacts": [
+    {
+      "platform": "windows-x64",
+      "url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.1.0/quick-notes-0.1.0-windows-x64.orionplugin",
+      "sha256": "5a06fa58251d694bd384dc639a2889a64073d394d29f68088f9e9ca121166b09"
+    }
+  ]
+}

@@ -1,12 +1,19 @@
 {
   "version": "0.1.0",
-  "staging": true,
-  "staging_reason": "Ship release artifact from OrionPlugins CI, then replace with sha256 + download url.",
   "published_at": "2026-10-15T00:00:00Z",
   "release": {
     "kind": "github_release",
     "repository": "DirtyPlayBoy/OrionPlugins",
-    "tag": "dice-roller-v0.1.0"
+    "tag": "examples-v0.1.0"
   },
-  "artifacts": []
+  "staging": false,
+  "download_url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.1.0/dice-roller-0.1.0-windows-x64.orionplugin",
+  "sha256": "44187e9c1d417233cb6dd1a2b423811b1acf70ae76cdab8d5b136245e8221c65",
+  "artifacts": [
+    {
+      "platform": "windows-x64",
+      "url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.1.0/dice-roller-0.1.0-windows-x64.orionplugin",
+      "sha256": "44187e9c1d417233cb6dd1a2b423811b1acf70ae76cdab8d5b136245e8221c65"
+    }
+  ]
 }

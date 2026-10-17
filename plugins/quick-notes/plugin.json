@@ -1,0 +1,17 @@
+{
+  "id": "quick-notes",
+  "name": "Быстрые заметки",
+  "summary": "Локальные короткие заметки: сохранить, найти, перечислить.",
+  "author": "Orion Team",
+  "official": true,
+  "license": "MIT",
+  "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
+  "homepage": "https://github.com/DirtyPlayBoy/OrionPlugins/tree/main/examples/quick-notes",
+  "capabilities": [
+    "tools"
+  ],
+  "tags": [
+    "tools",
+    "notes"
+  ]
+}

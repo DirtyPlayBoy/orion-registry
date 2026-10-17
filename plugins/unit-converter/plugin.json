@@ -1,0 +1,17 @@
+{
+  "id": "unit-converter",
+  "name": "Конвертер единиц",
+  "summary": "Конвертация длины, массы, объёма и температуры для ассистента Orion.",
+  "author": "Orion Team",
+  "official": true,
+  "license": "MIT",
+  "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
+  "homepage": "https://github.com/DirtyPlayBoy/OrionPlugins/tree/main/examples/unit-converter",
+  "capabilities": [
+    "tools"
+  ],
+  "tags": [
+    "tools",
+    "productivity"
+  ]
+}

@@ -3,13 +3,65 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional, Tuple
+
+
+_SEMVER_RE = re.compile(
+    r"^(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?(?:\+([0-9A-Za-z.-]+))?$"
+)
 
 
 def load(path: Path) -> Dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def semver_key(name: str) -> Tuple:
+    stem = Path(name).stem
+    m = _SEMVER_RE.match(stem)
+    if not m:
+        return (0, 0, 0, stem)
+    major, minor, patch = int(m.group(1)), int(m.group(2)), int(m.group(3))
+    pre = m.group(4) or ""
+    # release builds sort after pre-releases
+    return (major, minor, patch, 1 if not pre else 0, pre)
+
+
+def pick_version(versions_dir: Path) -> Optional[Dict[str, Any]]:
+    paths = sorted(versions_dir.glob("*.json"), key=lambda p: semver_key(p.name))
+    if not paths:
+        return None
+    chosen = None
+    for vp in reversed(paths):
+        v = load(vp)
+        if not v.get("staging"):
+            chosen = v
+            break
+    if chosen is None:
+        chosen = load(paths[-1])
+    return chosen
+
+
+def artifact_fields(chosen: Dict[str, Any]) -> Tuple[str, str, Optional[int]]:
+    arts = chosen.get("artifacts") or []
+    first = arts[0] if arts else {}
+    url = (
+        chosen.get("download_url")
+        or chosen.get("downloadUrl")
+        or first.get("url")
+        or ""
+    )
+    sha = chosen.get("sha256") or first.get("sha256") or ""
+    size = chosen.get("size")
+    if size is None:
+        size = first.get("size")
+    try:
+        size_i = int(size) if size not in (None, "", 0, "0") else None
+    except (TypeError, ValueError):
+        size_i = None
+    return str(url), str(sha), size_i
 
 
 def main() -> int:
@@ -22,62 +74,80 @@ def main() -> int:
         print("no plugins/", file=sys.stderr)
         return 1
 
-    for plug in sorted(plugins_dir.iterdir()):
+    prev_index: Dict[str, Any] = {}
+    if out.is_file():
+        try:
+            prev_index = load(out)
+        except Exception:
+            prev_index = {}
+
+    for plug in sorted(plugins_dir.iterdir(), key=lambda p: p.name):
         meta_path = plug / "plugin.json"
         if not meta_path.is_file():
             continue
         meta = load(meta_path)
         versions_dir = plug / "versions"
-        versions = sorted(versions_dir.glob("*.json")) if versions_dir.is_dir() else []
-        if not versions:
+        if not versions_dir.is_dir():
             continue
-        # pick highest semver-ish by filename sort; prefer non-staging
-        chosen = None
-        for vp in reversed(versions):
-            v = load(vp)
-            if not v.get("staging"):
-                chosen = v
-                break
+        chosen = pick_version(versions_dir)
         if chosen is None:
-            chosen = load(versions[-1])
+            continue
 
-        row = {
+        caps = meta.get("capabilities") or []
+        version = str(chosen.get("version") or "").strip()
+        if not version:
+            # fall back to highest semver filename
+            paths = sorted(versions_dir.glob("*.json"), key=lambda p: semver_key(p.name))
+            version = paths[-1].stem if paths else "0.0.0"
+        row: Dict[str, Any] = {
             "id": meta.get("id") or plug.name,
             "name": meta.get("name"),
-            "version": chosen.get("version"),
+            "version": version,
             "summary": meta.get("summary") or meta.get("description") or "",
             "author": meta.get("author") or "",
             "official": bool(meta.get("official")),
             "license": meta.get("license") or "MIT",
-            "capabilities": meta.get("capabilities") or [],
+            "capabilities": caps,
             "repository": meta.get("repository") or "",
-            "tags": meta.get("tags") or list(meta.get("capabilities") or []),
+            "tags": meta.get("tags") or list(caps),
         }
+        if meta.get("homepage"):
+            row["homepage"] = meta["homepage"]
+
         if chosen.get("staging"):
             row["staging"] = True
-            row["stagingReason"] = chosen.get("staging_reason") or chosen.get("stagingReason") or ""
-            row["downloadUrl"] = ""
-        else:
-            row["downloadUrl"] = (
-                chosen.get("download_url")
-                or chosen.get("downloadUrl")
-                or ((chosen.get("artifacts") or [{}])[0].get("url") if chosen.get("artifacts") else "")
+            row["stagingReason"] = (
+                chosen.get("staging_reason") or chosen.get("stagingReason") or ""
             )
-            row["sha256"] = chosen.get("sha256") or ((chosen.get("artifacts") or [{}])[0].get("sha256") if chosen.get("artifacts") else "")
-            row["size"] = chosen.get("size") or ((chosen.get("artifacts") or [{}])[0].get("size") if chosen.get("artifacts") else 0)
+            row["downloadUrl"] = ""
+            row["sha256"] = ""
+        else:
+            url, sha, size = artifact_fields(chosen)
+            row["staging"] = False
+            row["downloadUrl"] = url
+            row["sha256"] = sha
+            if size is not None:
+                row["size"] = size
+
         entries.append(row)
 
     entries.sort(key=lambda e: str(e.get("id") or ""))
+    prev_plugins = prev_index.get("plugins")
+    prev_serial = int(prev_index.get("serial") or 0)
+    if prev_plugins == entries:
+        serial = prev_serial or max(len(entries), 1)
+    else:
+        serial = max(prev_serial + 1, len(entries), 1)
     index = {
-        "_comment": "GENERATED by tools/build-index.py — do not hand-edit digests",
+        "_comment": "GENERATED by tools/build-index.py — edit plugins/*/ only, then rebuild",
         "schema": "orion.registry.index/1",
-        "serial": len(entries),
+        "serial": serial,
         "signatures": [],
         "plugins": entries,
     }
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(index, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"wrote {out} ({len(entries)} plugins)")
+    print(f"wrote {out} ({len(entries)} plugins, serial={serial})")
     return 0
 
 

@@ -1,0 +1,19 @@
+{
+  "id": "calculator",
+  "name": "Калькулятор",
+  "summary": "Считает выражения и открывает страницу «Калькулятор» в Orion.",
+  "author": "Orion Team",
+  "official": true,
+  "license": "MIT",
+  "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
+  "homepage": "https://github.com/DirtyPlayBoy/OrionPlugins/tree/main/examples/calculator",
+  "capabilities": [
+    "tools",
+    "ui_contributions"
+  ],
+  "tags": [
+    "tools",
+    "ui",
+    "productivity"
+  ]
+}

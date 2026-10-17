@@ -1,0 +1,17 @@
+{
+  "id": "color-tools",
+  "name": "Цвета",
+  "summary": "HEX ↔ RGB и контрастный цвет текста.",
+  "author": "Orion Team",
+  "official": true,
+  "license": "MIT",
+  "repository": "https://github.com/DirtyPlayBoy/OrionPlugins",
+  "homepage": "https://github.com/DirtyPlayBoy/OrionPlugins/tree/main/examples/color-tools",
+  "capabilities": [
+    "tools"
+  ],
+  "tags": [
+    "tools",
+    "design"
+  ]
+}

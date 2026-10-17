@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "published_at": "2026-10-15T00:00:00Z",
+  "release": {
+    "kind": "github_release",
+    "repository": "DirtyPlayBoy/OrionPlugins",
+    "tag": "examples-v0.2.0"
+  },
+  "staging": false,
+  "download_url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.2.0/text-tools-0.1.0-windows-x64.orionplugin",
+  "sha256": "ac423744efdc1aff01914f47bef4cbb087757361040e3e1e3aac086d55bb8158",
+  "artifacts": [
+    {
+      "platform": "windows-x64",
+      "url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.2.0/text-tools-0.1.0-windows-x64.orionplugin",
+      "sha256": "ac423744efdc1aff01914f47bef4cbb087757361040e3e1e3aac086d55bb8158"
+    }
+  ]
+}

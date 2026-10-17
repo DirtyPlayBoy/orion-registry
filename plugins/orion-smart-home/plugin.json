@@ -1,0 +1,19 @@
+{
+  "id": "orion-smart-home",
+  "name": "Умный дом",
+  "summary": "Яндекс Умный дом: страница управления, лампы, сценарии и голосовые команды.",
+  "author": "Orion Team",
+  "official": true,
+  "license": "MIT",
+  "repository": "https://github.com/DirtyPlayBoy/ORION",
+  "homepage": "https://github.com/DirtyPlayBoy/ORION/tree/main/plugin-sources/orion-smart-home",
+  "capabilities": [
+    "tools",
+    "ui_contributions"
+  ],
+  "tags": [
+    "smart-home",
+    "ui",
+    "tools"
+  ]
+}

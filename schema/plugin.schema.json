@@ -1,18 +1,28 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://orion.local/schema/plugin.json",
+  "$id": "https://raw.githubusercontent.com/DirtyPlayBoy/orion-registry/main/schema/plugin.schema.json",
+  "title": "Orion registry plugin identity",
   "type": "object",
+  "additionalProperties": true,
   "required": ["id", "name", "summary", "license", "repository"],
   "properties": {
-    "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Must match plugins/<id>/ folder name"
+    },
     "name": { "type": "string", "minLength": 1 },
     "summary": { "type": "string", "minLength": 1 },
     "author": { "type": "string" },
     "official": { "type": "boolean" },
-    "license": { "type": "string" },
+    "license": { "type": "string", "minLength": 1 },
     "repository": { "type": "string", "format": "uri" },
     "homepage": { "type": "string" },
     "capabilities": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tags": {
       "type": "array",
       "items": { "type": "string" }
     }

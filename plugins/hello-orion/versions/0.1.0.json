@@ -1,12 +1,19 @@
 {
   "version": "0.1.0",
-  "staging": true,
-  "staging_reason": "Install from OrionPlugins/examples/hello-orion or Orion app catalog (local example). Release artifact TBD.",
   "published_at": "2026-10-15T00:00:00Z",
   "release": {
     "kind": "github_release",
     "repository": "DirtyPlayBoy/OrionPlugins",
-    "tag": "hello-orion-v0.1.0"
+    "tag": "examples-v0.1.0"
   },
-  "artifacts": []
+  "staging": false,
+  "download_url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.1.0/hello-orion-0.1.0-windows-x64.orionplugin",
+  "sha256": "35a6e44c4f19fa1db96b9758a44324de7f4e82a92cd1b3f0dca339751e0f41cc",
+  "artifacts": [
+    {
+      "platform": "windows-x64",
+      "url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.1.0/hello-orion-0.1.0-windows-x64.orionplugin",
+      "sha256": "35a6e44c4f19fa1db96b9758a44324de7f4e82a92cd1b3f0dca339751e0f41cc"
+    }
+  ]
 }

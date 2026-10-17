@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "published_at": "2026-10-15T00:00:00Z",
+  "release": {
+    "kind": "github_release",
+    "repository": "DirtyPlayBoy/OrionPlugins",
+    "tag": "examples-v0.2.0"
+  },
+  "staging": false,
+  "download_url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.2.0/color-tools-0.1.0-windows-x64.orionplugin",
+  "sha256": "27235408595f7a59648b6580379be6716ab6cb51d463a5e63892c8c74589922c",
+  "artifacts": [
+    {
+      "platform": "windows-x64",
+      "url": "https://github.com/DirtyPlayBoy/OrionPlugins/releases/download/examples-v0.2.0/color-tools-0.1.0-windows-x64.orionplugin",
+      "sha256": "27235408595f7a59648b6580379be6716ab6cb51d463a5e63892c8c74589922c"
+    }
+  ]
+}

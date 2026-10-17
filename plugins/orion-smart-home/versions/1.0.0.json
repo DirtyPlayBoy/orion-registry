@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "staging": true,
+  "staging_reason": "Bundled with Orion app / plugin-sources; public Release artifact TBD.",
+  "published_at": "2026-10-15T00:00:00Z",
+  "release": {
+    "kind": "github_release",
+    "repository": "DirtyPlayBoy/ORION",
+    "tag": "orion-smart-home-v1.0.0"
+  },
+  "artifacts": []
+}
